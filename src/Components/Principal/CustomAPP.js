@@ -1,12 +1,69 @@
+
+
 import React from 'react';
+import { useFetch } from '../../hooks/useFetch';
+
 import './principal.css';
 
-
 export const CustomAPP = () => {
+const [formValues, handleImputChange] = useFetch({
+    fecha:'',
+    email:'',
+    password:''
+});
+const{ fecha, temperatura} = formValues;
+
+
+const handleSubmit = (e) =>{
+    e.preventDefault();
+    console.log(formValues);
+} 
+
   return (
-    <div>
-        <h1>Hola</h1>
+    <form onSubmit={handleSubmit}>
+        <h1>Calculador de temperaturas</h1>
         <hr/>
-    </div>
+        <div className="form-group">
+            <input
+            type="date"
+            name="fecha"
+            className="form-control"
+            autoComplete="off"
+            value = { fecha }
+            onChange= {handleImputChange}
+             />
+        </div>
+
+
+        <div className="form-group">
+            <input
+            type="text"
+            name="temperatura"
+            className="form-control mt-5"
+            placeholder= "Temperatura"
+            autoComplete="off"
+            value = { temperatura }
+            onChange= {handleImputChange}
+             />
+        </div> 
+        <button type="submit"  className="btn btn-primary mt-5">
+            Guardar
+        </button>
+    </form>
+
   )
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
