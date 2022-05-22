@@ -1,3 +1,9 @@
 body{
+    background-color: #21232A;
+    color:white;
+    font-family: monospace,arial, Courier;
+
+    font-size: 1.3rem;
     padding: 70px;
 }
+
