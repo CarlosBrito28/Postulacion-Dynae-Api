@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './principal.css';
 
 export const CustomAPP = () => {
-
+    //Declaro states que necesito
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [temperature, setTemperature] = useState(0);
@@ -13,13 +13,13 @@ export const CustomAPP = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        //Transformo fecha a formato utilizado por la api
         const startDateFormatting = convertDate(startDate);
         const endDateIsoFormatting = convertDate(endDate);
-
+        //Realizo peticion al api y guardo en el estado responseTemperature enviandole la fecha inicial, fecha final y temperature
         setResponseTemperature(await getSensorTemperatures(startDateFormatting, endDateIsoFormatting, temperature));
     }
-
+    //Formateo fecha para que no tome la hora local de Chile (-4) y la transformo a formato ISO
     const convertDate = (date) => new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
 
     return (
