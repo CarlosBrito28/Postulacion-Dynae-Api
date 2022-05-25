@@ -66,7 +66,7 @@ export const CustomAPP = () => {
                     />
                 </div>
                 <button type='submit' className='btn btn-primary mt-5'>
-                    Guardar
+                    Calcular
                 </button>
             </form>
             <div>
